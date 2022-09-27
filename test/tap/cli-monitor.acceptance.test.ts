@@ -69,7 +69,7 @@ if (!isWindows) {
     oldendpoint = key;
     t.pass('existing user endpoint captured');
 
-    await new Promise((resolve) => {
+    await new Promise<void>((resolve) => {
       server.listen(port, resolve);
     });
     t.pass('started demo server');
@@ -2022,7 +2022,7 @@ if (!isWindows) {
     delete process.env.SNYK_PORT;
     t.notOk(process.env.SNYK_PORT, 'fake env values cleared');
 
-    await new Promise((resolve) => {
+    await new Promise<void>((resolve) => {
       server.close(resolve);
     });
     t.pass('server shutdown');
