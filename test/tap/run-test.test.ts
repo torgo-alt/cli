@@ -3,7 +3,9 @@ import { only, test } from 'tap';
 import { fakeServer } from '../acceptance/fake-server';
 import * as cli from '../../src/cli/commands';
 
-const port = (process.env.PORT = process.env.SNYK_PORT = '12345');
+const port = (process.env.PORT = process.env.SNYK_PORT = Math.floor(
+  Math.random() * 10000 + 50000,
+).toString());
 const BASE_API = '/api/v1';
 process.env.SNYK_API = 'http://localhost:' + port + BASE_API;
 process.env.SNYK_HOST = 'http://localhost:' + port;

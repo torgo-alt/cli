@@ -25,7 +25,10 @@ type Policy = {
   [id: string]: Ignore[];
 };
 
-const port = process.env.PORT || process.env.SNYK_PORT || '12345';
+const port =
+  process.env.PORT ||
+  process.env.SNYK_PORT ||
+  Math.floor(Math.random() * 10000 + 50000).toString();
 
 const apiKey = '123456789';
 let oldKey;

@@ -8,7 +8,9 @@ import { getWorkspaceJSON } from '../acceptance/workspace-helper';
 const { test, only } = tap;
 (tap as any).runOnly = false; // <- for debug. set to true, and replace a test to only(..)
 
-const port = (process.env.PORT = process.env.SNYK_PORT = '12345');
+const port = (process.env.PORT = process.env.SNYK_PORT = Math.floor(
+  Math.random() * 10000 + 50000,
+).toString());
 const BASE_API = '/api/v1';
 process.env.SNYK_API = 'http://localhost:' + port + BASE_API;
 process.env.SNYK_HOST = 'http://localhost:' + port;
