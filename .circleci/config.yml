@@ -526,6 +526,7 @@ jobs:
             GOOS: << parameters.go_os >>
             GOARCH: << parameters.go_arch >>
             CLI_V1_LOCATION: ../binary-releases
+            CGO_ENABLED: 1
           command: make build build-test install prefix=. -e
       - save_cache:
           key: go-build-{{ arch }}-{{ checksum "cliv2/go.sum" }}
