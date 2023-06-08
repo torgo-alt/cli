@@ -14,18 +14,20 @@ export function getResults(testResult): sarif.Result[] {
       message: {
         text: `This file introduces a vulnerable ${vuln.packageName} package with a ${vuln.severity} severity vulnerability.`,
       },
-      locations: [
-        {
-          physicalLocation: {
-            artifactLocation: {
-              uri: testResult.displayTargetFile,
-            },
-            region: {
-              startLine: vuln.lineNumber || 1,
+      ...(testResult.displayTargetFile && {
+        locations: [
+          {
+            physicalLocation: {
+              artifactLocation: {
+                uri: testResult.displayTargetFile,
+              },
+              region: {
+                startLine: vuln.lineNumber || 1,
+              },
             },
           },
-        },
-      ],
+        ],
+      }),
     }),
   );
 }

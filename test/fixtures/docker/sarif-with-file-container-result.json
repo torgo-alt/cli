@@ -38,7 +38,19 @@
           "level": "note",
           "message": {
             "text": "This file introduces a vulnerable bzip2 package with a low severity vulnerability."
-          }
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "Dockerfile"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
         }
       ]
     }
